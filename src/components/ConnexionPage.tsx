@@ -1,12 +1,9 @@
 import { useRef } from 'react';
-//import { useAppContext } from '../AppContext';
 import { useNavigate } from 'react-router-dom';
-import Layout from './Layout';
 import TopNav from './TopNav';
 
 const ConnexionPage = () => {
 
-    //const { isConnected, setIsConnected, setLogin } = useAppContext();
     const navigate = useNavigate();
 
     const handleEyeClick = () => {
