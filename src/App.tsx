@@ -1,13 +1,32 @@
-import { useState } from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { AppProvider } from './AppContext'
+import ConnexionPage from './components/ConnexionPage'
+import Home from './components/Home'
+//import { useAppContext } from './AppContext'  
+
+
 
 function App() {
-  const [count, setCount] = useState(0)
+
+/*   const { setIsConnected, setLogin } = useAppContext();
+
+  if(window.localStorage.getItem("isConnected") === "true") {
+    setIsConnected(true)
+    setLogin(window.localStorage.getItem("login") as string)
+  } else {
+    setIsConnected(false)
+    setLogin("")
+  }   */
 
   return (
-    <div className="flex flex-col place-content-center place-items-center gap-16 w-full">
-      <p>Welcome to the global lab frontend template!</p>
-      <button className="flex bg-blue-400 w-fit p-2 rounded-lg" onClick={() => setCount(count + 1)}>Click me {count}</button>
-    </div>
+        <BrowserRouter>
+        <AppProvider>
+          <Routes>
+            <Route path="/frontend" element={<ConnexionPage />} />
+            <Route path="/frontend/home" element={<Home />} />
+          </Routes>
+        </AppProvider>
+      </BrowserRouter>
   )
 }
 
